@@ -6,7 +6,6 @@ import { Session } from 'meteor/session';
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/login/login.js';
-import '../../ui/pages/not-found/not-found.js';
 
 Session.setDefault('redirectAfterLogin', '/');
 
@@ -66,6 +65,6 @@ loggedIn.route('/logout', {
 
 FlowRouter.notFound = {
   action() {
-    BlazeLayout.render('App_body', { main: 'App_notFound' });
+    FlowRouter.redirect('/login');
   },
 };
