@@ -1,0 +1,41 @@
+.container
+  .row
+    .col.s12
+      ul.collection.with-header.todo-list
+        li.collection-header
+          h5 Todo {{listDay}}:
+        li.collection-item.search-w-button
+          .input-field
+            input#newToDo(type="text")
+            label(for="newToDo") Do something {{day}}
+          a.btn-floating.waves-effect(class="{{addButtonColor}}")#addNewToday
+            i.material-icons.grey-text.text-darken-3 playlist_add
+        if Template.subscriptionsReady
+          each todo
+            +item
+          else
+            li.collection-item
+              .grey-text.center nothing found!
+        else
+          li.collection-item
+            center
+              +loader
+      
+.dark-bg.action-close
+  .button-wrapper.action-close
+    .rotater
+      a.btn-floating.orange.w-text.grey-text.text-darken-3.w-text.waves-effect(data-val="0", data-color="orange") 0
+    .rotater
+      a.btn-floating.amber.w-text.grey-text.text-darken-3.w-text.waves-effect(data-val="1", data-color="amber") 1
+    .rotater
+      a.btn-floating.yellow.grey-text.text-darken-3.w-text.waves-effect(data-val="2", data-color="yellow") 2
+    .rotater
+      a.btn-floating.lime.grey-text.text-darken-3.w-text.waves-effect(data-val="3", data-color="lime") 3
+    .rotater
+      a.btn-floating.light-green.grey-text.text-darken-3.w-text.waves-effect(data-val="4", data-color="light-green") 4
+    .rotater
+      a.btn-floating.green.grey-text.text-darken-3.w-text.waves-effect(data-val="5", data-color="green") 5
+    //- .rotater
+    //-   a.btn-floating.green.waves-effect.action-choose-val 
+    //-     i.material-icons.grey-text.text-darken-3 mode_edit
+    

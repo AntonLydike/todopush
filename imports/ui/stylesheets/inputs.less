@@ -1,0 +1,64 @@
+
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #81d4fa !important; /* lighten 3 */
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: #0288d1 !important; /* darken 2 */
+}
+input[type="radio"].with-gap:checked+label:before {
+  border-color: #0288d1 !important;
+}
+input[type="radio"].with-gap:checked+label:after {
+  border-color: #0288d1 !important;
+  background-color: #0288d1 !important;
+}
+input[type="text"]:not([readonly]):focus+label,
+[type="password"]:not([readonly]):focus+label,
+[type="number"]:not([readonly]):focus+label,
+[type="email"]:not([readonly]):focus+label,
+textarea:not([readonly]):focus+label {
+  color: #0288d1 !important;
+}
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #039be5 !important; /* darken 1*/
+  box-shadow: 0 1px 0 0 #039be5 !important;
+}
+input[type="checkbox"]:checked + label:before {
+  border-right: 2px solid #039be5;
+  border-bottom: 2px solid #039be5;
+}
+.dropdown-content:not(.disabled) li:not(.disabled)>a,
+.dropdown-content:not(.disabled) li:not(.disabled)>span {
+  color: #0288d1 !important;
+}
+.dropdown-content li {
+  transition: .3s;
+}
+.input-field .prefix.active {
+  color: #039be5 !important;
+}
+
+.input-field label:not(.label-icon).active {
+  font-size: 1rem;
+  -webkit-transform: translateY(-140%) scale(.8);
+  transform: translateY(-140%) scale(.8);
+}
+
+.input-field label {
+  transform-origin: left;
+}
+
+.secondary-content {
+  color: #4f8dff;
+}

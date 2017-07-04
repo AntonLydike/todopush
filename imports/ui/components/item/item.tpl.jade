@@ -1,0 +1,7 @@
+li.collection-item.todo-item(class="{{doneClass}}") 
+  .inner-item {{text}}
+    input(type="checkbox", id="checkbox-{{_id}}", checked="{{done}}")
+    label.left(for="checkbox-{{_id}}")
+    .secondary-content.grey-text {{setAtDate}}
+  .item-bg
+    i.material-icons.grey-text delete

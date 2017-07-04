@@ -1,0 +1,32 @@
+.navbar-fixed
+  nav
+    .nav-wrapper.indigo
+      a.brand-logo ToDoPush
+      a.button-collapse(data-activates="sidenav")
+        i.material-icons menu
+      ul.right.hide-on-med-and-down#nav-mobile
+        li
+          if loggedIn
+            a(href="/logout") Logout
+              i.material-icons.left lock_outline
+          else
+            a(href="/login") Login  
+              i.material-icons.left lock_outline
+ul.side-nav#sidenav
+  li
+    .user-view
+      .background.indigo
+      a
+        span.white-text.name {{name}}
+      a
+        span.white-text.email {{email}}
+        
+  li
+    if loggedIn
+      a(href="/logout") Logout
+        i.material-icons.left lock_outline
+    else
+      a(href="/login") Login  
+        i.material-icons.left lock_outline
+.content
+  +Template.dynamic template=main
