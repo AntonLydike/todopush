@@ -22,6 +22,9 @@ const exposed = FlowRouter.group({
 exposed.route('/login', {
   name: 'App.login',
   action() {
+    if (Meteor.loggingIn() || Meteor.userId()) {
+      return FlowRouter.redirect('/');
+    }
     BlazeLayout.render('App_body', { main: 'App_login' });
   }
 })
@@ -58,8 +61,9 @@ loggedIn.route('/', {
 loggedIn.route('/logout', {
   name: 'App.logout',
   action() {
-    Meteor.logout();
-    FlowRouter.redirect('/login');
+    Meteor.logout(function() {
+      FlowRouter.go('/login');
+    });
   }
 })
 
