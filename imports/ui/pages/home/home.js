@@ -8,18 +8,33 @@ import '/imports/ui/components/loader/loader.tpl.jade';
 import '/imports/ui/components/item/item.js';
 
 Template.App_home.onCreated(function () {
-  this.subscribe('todos.today');
+  this.subscribe('todos.all');
   this.addDays = 1;
   this.addDaysColor = new ReactiveVar('amber');
   this.addLabelDay = new ReactiveVar('tomorrow');
 
-  this.listDayString = new ReactiveVar('today');
-  this.listDay = 0;
+  this.listDay = new ReactiveVar(0);
 });
+
+Template.App_home.onRendered(function () {
+  const self = this,
+        picker = this.picker = $('#hiddenDatePick').pickadate({
+    min: true,
+    max: moment().add(5, 'days')._d,
+    format: 'dd.mm.yy'
+  }).pickadate('picker');
+
+  picker.on({
+    close() {
+      let date = moment(picker.get(), 'DD.MM.YY');
+      self.listDay.set(date.diff(moment().startOf('day'), 'days'));
+    }
+  })
+})
 
 Template.App_home.helpers({
   todo() {
-    let day = moment().startOf('day')._d;
+    let day = moment().add(Template.instance().listDay.get(), 'days').startOf('day')._d;
     return Todos.find({day});
   },
   addButtonColor() {
@@ -29,7 +44,10 @@ Template.App_home.helpers({
     return Template.instance().addLabelDay.get();
   },
   listDay() {
-    return Template.instance().listDayString.get();
+    return dayDiffToString(Template.instance().listDay.get());
+  },
+  isToday() {
+    return Template.instance().listDay.get() == 0
   }
 })
 
@@ -60,11 +78,11 @@ Template.App_home.events({
         + tpl.addLabelDay.get()
         + '<i class="material-icons left green-text">done</i>', 6000)
       }
-    })
 
-    tpl.addDays = 1;
-    tpl.addDaysColor.set('amber');
-    tpl.addLabelDay.set('tomorrow');
+      tpl.addDays = 1;
+      tpl.addDaysColor.set('amber');
+      tpl.addLabelDay.set('tomorrow');
+    })
   },
   'contextmenu #addNewToday'(e, tpl) {
     e.preventDefault();
@@ -84,20 +102,29 @@ Template.App_home.events({
     tpl.addDaysColor.set(color);
     tpl.addDays = num;
 
-    switch (num) {
-      case 0:
-        numstr = 'today';
-        break;
-      case 1:
-        numstr = 'tomorrow';
-        break;
-      default:
-        numstr = `in ${num} days`;
-    }
+    numstr = dayDiffToString(num);
 
     tpl.addLabelDay.set(numstr);
   },
   'click .dark-bg'(e, tpl) {
     if (e.target.classList.contains('action-close')) tpl.$('.dark-bg').removeClass('open');
+  },
+  'click .action-date'(e, tpl) {
+    setTimeout(() => {
+      tpl.picker.open()
+    }, 10);
   }
 })
+
+function dayDiffToString(num) {
+  switch (num) {
+    case 0:
+      return 'today';
+      break;
+    case 1:
+      return 'tomorrow';
+      break;
+    default:
+      return 'on ' + moment().add(num, 'days').format('dddd').toLowerCase();
+  }
+}
