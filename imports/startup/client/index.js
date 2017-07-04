@@ -70,4 +70,4 @@ $(window).resize(reziseFunc);
 reziseFunc();
 // testing
 
-window.todopush = {version:'0.0.3'}
+window.todopush = {version:'1.0.0'}
