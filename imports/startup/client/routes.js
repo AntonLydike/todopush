@@ -6,6 +6,7 @@ import { Session } from 'meteor/session';
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/login/login.js';
+import '../../ui/pages/settings/settings.js';
 
 Session.setDefault('redirectAfterLogin', '/');
 
@@ -55,6 +56,13 @@ loggedIn.route('/', {
   name: 'App.home',
   action() {
     BlazeLayout.render('App_body', { main: 'App_home' });
+  },
+});
+
+loggedIn.route('/settings', {
+  name: 'App.settings',
+  action() {
+    BlazeLayout.render('App_body', { main: 'App_settings' });
   },
 });
 

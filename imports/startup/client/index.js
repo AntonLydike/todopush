@@ -71,3 +71,7 @@ reziseFunc();
 // testing
 
 window.todopush = {version:'1.0.1'}
+
+import { Todos } from '/imports/api/todos/todos.js';
+
+window.Todos = Todos;

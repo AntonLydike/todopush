@@ -9,6 +9,8 @@
       ul.right.hide-on-med-and-down#nav-mobile
         li
           if loggedIn
+            a(href="/settings") Settings
+              i.material-icons.left settings
             a(href="/logout") Logout
               i.material-icons.left lock_outline
           else
@@ -25,6 +27,8 @@ ul.side-nav#sidenav
         
   li
     if loggedIn
+      a(href="/settings") Settings
+        i.material-icons.left settings
       a(href="/logout") Logout
         i.material-icons.left lock_outline
     else
