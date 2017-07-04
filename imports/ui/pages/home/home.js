@@ -34,8 +34,9 @@ Template.App_home.onRendered(function () {
 
 Template.App_home.helpers({
   todo() {
-    let day = moment().add(Template.instance().listDay.get(), 'days').startOf('day')._d;
-    return Todos.find({day});
+    let day = moment().add(Template.instance().listDay.get(), 'days').startOf('day')._d,
+        dayEnd = moment().add(Template.instance().listDay.get(), 'days').endOf('day')._d;
+    return Todos.find({day:{$gt:day, $lt:dayEnd}});
   },
   addButtonColor() {
     return Template.instance().addDaysColor.get();
