@@ -35,3 +35,4 @@ useraccounts:materialize
 session
 momentjs:moment
 jquery
+percolate:synced-cron

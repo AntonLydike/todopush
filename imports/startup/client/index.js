@@ -13,33 +13,23 @@ try {
   console.error(e);
 }
 
-
-
 window.width = $(window).width();
 
 
 const sizes = {
-  ph: null,
-  pw: null,
-  lh: null,
-  lw: null,
-  keyboard: null,
+  ph: 0,
+  pw: 0,
+  lh: 0,
+  lw: 0,
+  keyboard: false,
   portrait: screen.orientation.type.indexOf('portrait')>-1
-}
-if (sizes.portrait) {
-  // it's portrait
-  sizes.ph = $(window).height()
-  sizes.ph = $(window).width()
-} else {
-  // it's landscape
-  sizes.lh = $(window).height()
-  sizes.lh = $(window).width()
 }
 // TODO optimize!
 function recalc() {
   let w = $(window).width(),
       h = $(window).height();
 
+  console.log(h);
   sizes.portrait = screen.orientation.type.indexOf('portrait')>-1
   if (sizes.portrait) {
     // it's portrait
@@ -79,8 +69,5 @@ function reziseFunc () {
 $(window).resize(reziseFunc);
 reziseFunc();
 // testing
-import { Todos } from '/imports/api/todos/todos.js';
-import { moment } from 'meteor/momentjs:moment';
 
-window.moment = moment;
-window.Todos = Todos;
+window.todopush = {version:'0.0.3'}
