@@ -19,4 +19,17 @@ App.icons({
   android_xxxhdpi: "public/icons/xxxhdpi/todopush.png"
 })
 
+App.launchScreens({
+  android_mdpi_portrait: 'public/icons/mdpi/launch.portrait.png',
+  android_mdpi_landscape: 'public/icons/mdpi/launch.landscape.png',
+  android_hdpi_portrait: 'public/icons/hdpi/launch.portrait.png',
+  android_hdpi_landscape: 'public/icons/hdpi/launch.landscape.png',
+  android_xhdpi_portrait: 'public/icons/xhdpi/launch.portrait.png',
+  android_xhdpi_landscape: 'public/icons/xhdpi/launch.landscape.png',
+  android_xxhdpi_portrait: 'public/icons/xxhdpi/launch.portrait.png',
+  android_xxhdpi_landscape: 'public/icons/xxhdpi/launch.landscape.png'
+})
+
+App.setPreference('SplashMaintainAspectRatio', 'true');
+
 // Mehr zur mobilen konfiguration: http://docs.meteor.com/api/mobile-config.html
