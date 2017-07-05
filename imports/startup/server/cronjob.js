@@ -1,5 +1,5 @@
 
-import {clearOldGunk} from '/imports/api/todos/server/clearOld.js'
+import { clearOldGunk } from '/imports/api/todos/server/clearOld.js'
 
 SyncedCron.add({
   name: 'clear old entries from the DB',
@@ -8,6 +8,8 @@ SyncedCron.add({
     return parser.text('at 2:00 am');
   },
   job: function() {
-    clearOldGunk()
+    return clearOldGunk()
   }
 });
+
+console.log("Next cron:",SyncedCron.nextScheduledAtDate('clear old entries from the DB'));

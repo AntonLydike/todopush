@@ -7,4 +7,6 @@ export const clearOldGunk = function clearOldGunk () {
   let count = Todos.remove({day: {$lt: yesterday}});
 
   console.log('cleared ' + count + ' items out of the DB');
+
+  return 'cleared ' + count + ' items out of the DB';
 }

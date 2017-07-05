@@ -15,7 +15,6 @@ try {
 
 window.width = $(window).width();
 
-
 const sizes = {
   ph: 0,
   pw: 0,
@@ -70,4 +69,4 @@ $(window).resize(reziseFunc);
 reziseFunc();
 // testing
 
-window.todopush = {version:'1.0.1'}
+window.todopush = {version:'1.0.2'}
