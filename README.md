@@ -1,5 +1,5 @@
 # ToDoPush
-A very simple sollution for a simple problem. If you've ever thought to yourself "Hey, I should clean my room... maybe I'll do it tomorrow."? Then ToDoPush is justz the right thing for you!
+A very simple sollution for a simple problem. Have you ever thought to yourself "Hey, I should clean my room... maybe I'll do it tomorrow."? Then ToDoPush is just the right thing for you!
 
 [View it online](https://todopush.eu.meteorapp.com/)
 
