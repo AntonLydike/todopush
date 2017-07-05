@@ -7,15 +7,18 @@
       a.button-collapse(data-activates="sidenav")
         i.material-icons menu
       ul.right.hide-on-med-and-down#nav-mobile
-        li
-          if loggedIn
+        if loggedIn
+          li
             a(href="/") Home
               i.material-icons.left home
+          li  
             a(href="/settings") Settings 
               i.material-icons.left settings
+          li  
             a(href="/logout") Logout
               i.material-icons.left lock_outline
-          else
+        else
+          li
             a(href="/login") Login  
               i.material-icons.left lock_outline
 ul.side-nav#sidenav
@@ -27,15 +30,18 @@ ul.side-nav#sidenav
       a
         span.white-text.email {{email}}
         
-  li
-    if loggedIn
+  if loggedIn
+    li
       a(href="/") Home
         i.material-icons.left home
+    li    
       a(href="/settings") Settings
         i.material-icons.left settings
+    li  
       a(href="/logout") Logout
         i.material-icons.left lock_outline
-    else
+  else
+    li
       a(href="/login") Login  
         i.material-icons.left lock_outline
 .content

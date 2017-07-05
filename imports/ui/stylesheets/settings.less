@@ -1,0 +1,54 @@
+.settings-list {
+  max-width: 420px;
+  margin: auto;
+
+  @media (min-width: 600px) {
+    with: 85%;
+    margin: 64px auto;
+  }
+
+  .list-section {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+    margin: 8px 0 16px 0;
+
+    .item {
+      position: relative;
+      padding: .75rem 1.25rem;
+      min-height: 4.5rem;
+      display: flex;
+      align-items: center;
+
+      .title {
+        font-weight: 500;
+        flex-grow: 1;
+      }
+
+      .content-right .lever{
+        margin: 0px;
+      }
+
+      &:not(.section-header):not(:last-child):after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 1.25rem;
+        right: 1.25rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .value {
+        font-weight: 400;
+        color: #666;
+      }
+    }
+
+    .section-header {
+      min-height: 0;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #ff8f00;
+    }
+  }
+
+
+}
