@@ -1,6 +1,31 @@
 // Import client startup through a single index entry point
 
-todopush = {version:'1.0.2m'}
+console.log('=============================================== FRESH START ===============================================');
+
+let old = {
+  log: console.log,
+  warn: console.warn,
+  error: console.error,
+  testing: Meteor.settings.public.admob.testing
+}
+
+_.each(['log', 'warn', 'error'], (type) => {
+  if (!old.testing) return;
+  
+  console[type] = function (...msgs) {
+    _.each(msgs, (msg) => {
+      let line = '['+ (new Error()).stack.toString().split(/\r\n|\n/)[5].replace(/^[\sat]+|\?hash\=[a-z0-9]{40}|http:\/\/localhost\:[0-9]+/g, '') +'] ';
+
+      if (typeof msg === 'object') {
+        old[type].call(console,line + JSON.stringify(msg, true, "  "));
+      } else {
+        old[type].call(console,line + msg);
+      }
+    })
+  }
+})
+
+todopush = {version:'1.0.3m'}
 
 import './routes.js';
 // improve speed
@@ -31,7 +56,6 @@ function recalc() {
   let w = $(window).width(),
       h = $(window).height();
 
-  console.log(h);
   sizes.portrait = screen.orientation.type.indexOf('portrait')>-1
   if (sizes.portrait) {
     // it's portrait

@@ -2,7 +2,7 @@
 App.info({
   id: 'de.antonlydike.todopush',
   name: 'ToDoPush',
-  version: "1.0.2m",
+  version: "1.0.3m",
   description: "A simple ToDo app with a twist",
   author: "Anton Lydike",
   email: "dev@antonlydike.de"

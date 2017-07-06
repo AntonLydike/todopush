@@ -4,6 +4,21 @@
     .item 
       .title 
         .value Empty
+  .list-section
+    .item.section-header Ad settings
+    .item.play-ad(class="{{videoReadyClass}}")
+      .title Play an ad
+        .value To gain 10 ToDos
+      .content-right
+        unless videoReady
+          +loader
+          
+    .item.play-ad
+      .title Ad ID
+        .value {{adId}}
+    .item.play-ad
+      .title Testing
+        .value {{isTesting}}
 
   //-
     .item 
