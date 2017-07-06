@@ -12,4 +12,6 @@ SyncedCron.add({
   }
 });
 
+SyncedCron.start();
+
 console.log("Next cron:",SyncedCron.nextScheduledAtDate('clear old entries from the DB'));
