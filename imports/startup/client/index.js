@@ -1,5 +1,7 @@
 // Import client startup through a single index entry point
 
+window.todopush = {version:'1.0.3'}
+
 import './routes.js';
 // improve speed
 import '../../api/todos/methods.js';
@@ -68,5 +70,3 @@ function reziseFunc () {
 $(window).resize(reziseFunc);
 reziseFunc();
 // testing
-
-window.todopush = {version:'1.0.2'}
