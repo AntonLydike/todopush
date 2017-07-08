@@ -6,7 +6,7 @@ A very simple sollution for a simple problem. Have you ever thought to yourself 
 ## Implemented features
 
  - Add ToDos for tomorrow (default), today, or for in up to 5 days!
- - Stay syncronized with all your devices! Even your desktop (except apple, because f*ck apple)
+ - Stay syncronized with all your devices! Even your desktop (except apple, because f\*ck apple)
  - Deleting ToDos
 
 ## Not yet implemented features
@@ -15,3 +15,4 @@ A very simple sollution for a simple problem. Have you ever thought to yourself 
  - Get a sticky push notification with everything you've got todo today
  - Edit ToDos
  - Add a time for a special notification
+ - Optional backup DB that gets the changes daily
